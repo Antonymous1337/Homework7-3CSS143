@@ -14,7 +14,7 @@ public class TrieNode {
     }
 
     TrieNode(char v, boolean word) {
-        val = Character.toLowerCase(v);
+        val = v;
         nodes = new TrieNode[26];
         for (int i = 0; i < nodes.length; i++) {
             nodes[i] = null;
@@ -23,7 +23,7 @@ public class TrieNode {
     }
 
     public boolean valExists(char v) {
-        return nodes[findNumEquivalentToChar(Character.toLowerCase(v))] != null;
+        return nodes[findNumEquivalentToChar(v)] != null;
     }
 
     public void setValid(boolean validity) {
@@ -32,12 +32,12 @@ public class TrieNode {
 
     public void put(char v, boolean word) {
         if (!valExists(v)){
-            nodes[findNumEquivalentToChar(Character.toLowerCase(v))] = new TrieNode(v, word);
+            nodes[findNumEquivalentToChar(v)] = new TrieNode(v, word);
         }
     }
 
     public TrieNode get(char v) {
-        return nodes[findNumEquivalentToChar(Character.toLowerCase(v))];
+        return nodes[findNumEquivalentToChar(v)];
     }
 
     public void returnPossibleEntries(ArrayList<String> toReturn, String subWord) {

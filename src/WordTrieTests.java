@@ -143,6 +143,30 @@ public class WordTrieTests {
         assertTrue(words.search("za").size() == 2);
         assertTrue(words.search("zi").size() == 2);
         assertTrue(words.search("ze").size() == 1);
+
+        long startTime = System.currentTimeMillis();
+        printArray(words.search(""));
+        long endTime = System.currentTimeMillis();
+        long duration = endTime - startTime;
+        System.out.println("Searching with 130 returns and 0 char takes " + duration + " milliseconds");
+
+        startTime = System.currentTimeMillis();
+        printArray(words.search("a"));
+        endTime = System.currentTimeMillis();
+        duration = endTime - startTime;
+        System.out.println("Searching with 5 returns and 1 char takes " + duration + " milliseconds");
+
+        startTime = System.currentTimeMillis();
+        printArray(words.search("apple"));
+        endTime = System.currentTimeMillis();
+        duration = endTime - startTime;
+        System.out.println("Searching with 2 returns and 5 char takes " + duration + " milliseconds");
+
+        startTime = System.currentTimeMillis();
+        printArray(words.search("apples"));
+        endTime = System.currentTimeMillis();
+        duration = endTime - startTime;
+        System.out.println("Searching with 1 returns and 6 char takes " + duration + " milliseconds");
     }
 
 

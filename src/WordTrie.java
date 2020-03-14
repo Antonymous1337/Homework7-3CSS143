@@ -9,8 +9,9 @@ public class WordTrie {
 
     public void insert(String word) {
         TrieNode ptr = head;
+        word = word.toLowerCase();
         for (int i = 0; i < word.length(); i++) {
-            if (!ptr.valExists(Character.toLowerCase(word.charAt(i))) && i == word.length()-1) ptr.put(word.charAt(i), true);
+            if (!ptr.valExists(word.charAt(i)) && i == word.length()-1) ptr.put(word.charAt(i), true);
             else if (!ptr.valExists(word.charAt(i))) ptr.put(word.charAt(i), false);
             else if (i == word.length()-1) ptr.get(word.charAt(i)).setValid(true);
 
