@@ -1,0 +1,3 @@
+The most memorable moment of the quarter was the explaination of recursion. The use of inception was a really good way to explain it, and honestly, it probably is one of the best ways to explain it. It stuck out to me because of how simple and precise it was, yet how effective it was to explain to students.
+
+I would say that other experiences which was just as memorable, is (1) figuring out how to find a loop in a linked list (it just stuck out because I was stumped for a while and then the solution was much easier than I thought it was) and (2) the use of Trie which, honestly, was kind of cool.
