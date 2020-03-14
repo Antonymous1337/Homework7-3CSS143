@@ -48,7 +48,7 @@ public class TrieNode {
         }
     }
 
-    public void returnPossibleEntriesHelper(ArrayList<String> toReturn, String subWord) {
+    private void returnPossibleEntriesHelper(ArrayList<String> toReturn, String subWord) {
         if (word) toReturn.add(subWord+val);
         for (int i = 0; i < nodes.length; i++) {
             // if (vals != new TrieNode()) returnPossibleEntries(toReturn, subWord + val);
@@ -111,7 +111,7 @@ public class TrieNode {
             case 'z':
                 return 25;
             default:
-                return 26;
+                return 26; // will make program crash
         }
     }
 }
