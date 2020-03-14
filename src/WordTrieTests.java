@@ -8,6 +8,52 @@ import static org.junit.Assert.assertTrue;
 public class WordTrieTests {
 
     @Test
+    public void testWordTrieGivenTests() {
+        WordTrie words = new WordTrie();
+
+        words.insert("heLlo");
+        words.insert("hIgH");
+        words.insert("seAtTle");
+        words.insert("sEatAc");
+        words.insert("See");
+        words.insert("hOllow");
+        words.insert("How");
+
+        ArrayList<String> h = words.search("h");
+        ArrayList<String> se = words.search("se");
+        ArrayList<String> sea = words.search("sea");
+        ArrayList<String> ho = words.search("ho");
+        ArrayList<String> xyz = words.search("xyz");
+
+        ArrayList<String> hExpected = new ArrayList<>();
+        hExpected.add("hello");
+        hExpected.add("high");
+        hExpected.add("hollow");
+        hExpected.add("how");
+        assertTrue(h.equals(hExpected));
+
+        ArrayList<String> seExpected = new ArrayList<>();
+        seExpected.add("seatac");
+        seExpected.add("seattle");
+        seExpected.add("see");
+        assertTrue(se.equals(seExpected));
+
+        ArrayList<String> seaExpected = new ArrayList<>();
+        seaExpected.add("seatac");
+        seaExpected.add("seattle");
+        assertTrue(sea.equals(seaExpected));
+
+        ArrayList<String> hoExpected = new ArrayList<>();
+        hoExpected.add("hollow");
+        hoExpected.add("how");
+        assertTrue(ho.equals(hoExpected));
+
+        ArrayList<String> xyzExpected = new ArrayList<>();
+        assertTrue(xyz.equals(xyzExpected));
+
+    }
+
+    @Test
     public void testWordTrie() {
         WordTrie words = getWordTrie();
 
