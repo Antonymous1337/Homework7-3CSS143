@@ -7,17 +7,27 @@ public class TrieNode {
 
     TrieNode() { // 26 letters
         nodes = new TrieNode[26];
+        for (int i = 0; i < nodes.length; i++) {
+            nodes[i] = null;
+        }
         word = false;
     }
 
     TrieNode(char v, boolean word) {
         val = Character.toLowerCase(v);
         nodes = new TrieNode[26];
+        for (int i = 0; i < nodes.length; i++) {
+            nodes[i] = null;
+        }
         this.word = word;
     }
 
     public boolean valExists(char v) {
         return nodes[findNumEquivalentToChar(Character.toLowerCase(v))] != null;
+    }
+
+    public void setValid(boolean validity) {
+        word = validity;
     }
 
     public void put(char v, boolean word) {
@@ -32,8 +42,17 @@ public class TrieNode {
 
     public void returnPossibleEntries(ArrayList<String> toReturn, String subWord) {
         if (word) toReturn.add(subWord);
-        for (TrieNode vals : nodes) {
-            if (vals != null) returnPossibleEntries(toReturn, subWord + val);
+        for (int i = 0; i < nodes.length; i++) {
+            // if (vals != new TrieNode()) returnPossibleEntries(toReturn, subWord + val);
+            if (nodes[i] != null) nodes[i].returnPossibleEntriesHelper(toReturn, subWord);
+        }
+    }
+
+    public void returnPossibleEntriesHelper(ArrayList<String> toReturn, String subWord) {
+        if (word) toReturn.add(subWord+val);
+        for (int i = 0; i < nodes.length; i++) {
+            // if (vals != new TrieNode()) returnPossibleEntries(toReturn, subWord + val);
+            if (nodes[i] != null) nodes[i].returnPossibleEntriesHelper(toReturn, subWord + val);
         }
     }
 

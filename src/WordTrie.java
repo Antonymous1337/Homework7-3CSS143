@@ -12,6 +12,7 @@ public class WordTrie {
         for (int i = 0; i < word.length(); i++) {
             if (!ptr.valExists(Character.toLowerCase(word.charAt(i))) && i == word.length()-1) ptr.put(word.charAt(i), true);
             else if (!ptr.valExists(word.charAt(i))) ptr.put(word.charAt(i), false);
+            else if (i == word.length()-1) ptr.get(word.charAt(i)).setValid(true);
 
             ptr = ptr.get(word.charAt(i));
 
@@ -19,6 +20,7 @@ public class WordTrie {
     }
 
     public ArrayList<String> search(String subWord) {
+        subWord = subWord.toLowerCase();
         TrieNode ptr = head;
         for (int i = 0; i < subWord.length(); i++) {
             if (ptr.valExists(subWord.charAt(i))) ptr = ptr.get(subWord.charAt(i));
